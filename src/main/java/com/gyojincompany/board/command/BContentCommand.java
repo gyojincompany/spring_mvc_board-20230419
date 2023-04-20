@@ -23,6 +23,7 @@ public class BContentCommand implements BCommand {
 		
 		BDao dao = new BDao();
 		BDto dto = dao.content_view(bid);
+		//dao.upHit(bid);
 		
 		model.addAttribute("content", dto);
 
