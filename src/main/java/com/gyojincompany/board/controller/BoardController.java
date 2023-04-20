@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gyojincompany.board.command.BContentCommand;
 import com.gyojincompany.board.command.BListCommand;
 import com.gyojincompany.board.command.BWriteCommand;
 
@@ -36,6 +37,17 @@ public class BoardController {
 		command.execute(model);
 		
 		return "list";
+	}
+	
+	@RequestMapping(value = "content_view")
+	public String content_view(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		
+		BContentCommand command = new BContentCommand();
+		command.execute(model);
+		
+		return "contentView";
 	}
 
 }
