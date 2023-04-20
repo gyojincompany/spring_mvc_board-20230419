@@ -10,6 +10,7 @@ import com.gyojincompany.board.command.BContentCommand;
 import com.gyojincompany.board.command.BDeleteCommand;
 import com.gyojincompany.board.command.BListCommand;
 import com.gyojincompany.board.command.BModifyCommand;
+import com.gyojincompany.board.command.BReplyCommand;
 import com.gyojincompany.board.command.BWriteCommand;
 
 @Controller
@@ -100,6 +101,17 @@ public class BoardController {
 		command.execute(model);
 		
 		return "replyForm";
+	}
+	
+	@RequestMapping(value = "/reply")
+	public String reply(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		
+		BReplyCommand command = new BReplyCommand();
+		command.execute(model);
+		
+		return "redirect:list";
 	}
 
 }
