@@ -23,7 +23,7 @@
 			<td>${dto.bid }</td>
 			
 			<td>
-				<c:forEach begin="1" end="${dto.bindent }">-</c:forEach>
+				<c:forEach begin="1" end="${dto.bindent }">&nbsp;&nbsp;&nbsp;</c:forEach>
 				<a href="content_view?bid=${dto.bid }">${dto.btitle }</a>
 				
 			</td>
